@@ -1,0 +1,1 @@
+This repository is dedicated to the Week 1 assignment as part of the onboarding process.
