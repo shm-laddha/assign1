@@ -1,0 +1,63 @@
+{
+  "name": "shubham-laddha-w1-server",
+  "version": "1.0.0",
+  "description": "backend for frontend",
+  "main": "index.js",
+  "module": "esnext",
+  "scripts": {
+    "start:dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\" ",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "clean": "rimraf dist coverage",
+    "migrate": "npx sequelize-cli-ts-js db:migrate",
+    "generate": "graphql-codegen --config src/graphql/codegen.ts",
+    "lint": "eslint . -c src/**/*.ts",
+    "lint-and-fix": "eslint . -c src/**/*.ts --fix",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shm-laddha/assign1.git"
+  },
+  "author": "shubhaml@sprinto.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shm-laddha/assign1/issues"
+  },
+  "homepage": "https://github.com/shm-laddha/assign1#readme",
+  "dependencies": {
+    "@apollo/server": "^4.11.2",
+    "@graphql-tools/schema": "^10.0.9",
+    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
+    "@sequelize/core": "^7.0.0-alpha.43",
+    "@sequelize/postgres": "^7.0.0-alpha.43",
+    "apollo-server-express": "^3.13.0",
+    "dataloader": "^2.2.2",
+    "dotenv": "^16.4.5",
+    "envalid": "^8.0.0",
+    "express": "^4.21.1",
+    "graphql": "^16.9.0",
+    "graphql-constraint-directive": "^5.4.3",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.8.2",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5",
+    "uuidv4": "^6.2.13",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/typescript": "^4.1.1",
+    "@graphql-codegen/typescript-resolvers": "^4.4.0",
+    "@types/graphql": "^14.2.3",
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "eslint": "^9.14.0",
+    "prettier": "^3.3.3",
+    "sequelize-cli-ts-js": "^1.1.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
