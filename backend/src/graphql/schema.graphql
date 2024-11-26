@@ -1,0 +1,136 @@
+type Author {
+  id: String!
+  name: String!
+  biography: String!
+  bornDate: String!
+  books(
+    page: Int
+    pageSize: Int
+    bookId: String
+    title: String
+    fromPublishedDate: String
+    toPublishedDate: String
+  ): PaginatedBooks
+  createdAt: String!
+  updatedAt: String!
+}
+
+type ReviewLocation {
+  country: String!
+  city: String
+}
+
+input LocationInput {
+  country: String!
+  city: String
+}
+
+type ReviewItem {
+  id: String!
+  reviewerName: String
+  bookId: String!
+  country: String!
+  title: String!
+  content: String!
+  rating: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Book {
+  id: String!
+  title: String!
+  description: String
+  publishedDate: String!
+  # A Book may not have an author if the author entity is deleted
+  author: Author
+  createdAt: String!
+  updatedAt: String!
+}
+
+type BookReview {
+  bookId: String!
+  overallRating: Float
+  reviews(page: Int, pageSize: Int): PaginatedReviews
+}
+
+type PaginatedReviews {
+  items: [ReviewItem!]
+  total: Int!
+  page: Int!
+  pageSize: Int!
+  hasNextPage: Boolean!
+}
+
+type PaginatedAuthors {
+  items: [Author!]
+  total: Int!
+  page: Int!
+  pageSize: Int!
+  hasNextPage: Boolean!
+}
+
+type PaginatedBooks {
+  items: [Book!]
+  total: Int!
+  page: Int!
+  pageSize: Int!
+  hasNextPage: Boolean!
+}
+
+type Mutation {
+  addAuthor(
+    name: String!
+    biography: String
+    bornDate: String @constraint(format: "date")
+  ): Author!
+  addBook(
+    title: String!
+    description: String
+    publishedDate: String @constraint(format: "date")
+    authorId: String @constraint(format: "uuid")
+  ): Book!
+  updateAuthor(
+    id: String! @constraint(format: "uuid")
+    name: String
+    biography: String @constraint(maxLength: 1000)
+    bornDate: String @constraint(format: "date")
+  ): Author!
+  updateBook(
+    id: String! @constraint(format: "uuid")
+    title: String
+    description: String
+    publishedDate: String
+    authorId: String
+  ): Book!
+  deleteAuthor(id: String!): String!
+  deleteBook(id: String!): String!
+  addReview(
+    bookId: String! @constraint(format: "uuid")
+    reviewerName: String
+    reviewerLocation: LocationInput
+    title: String! @constraint(minLength: 10, maxLength: 100)
+    content: String
+    rating: Int! @constraint(min: 1, max: 5)
+  ): ReviewItem
+}
+
+type Query {
+  authors(
+    page: Int
+    pageSize: Int
+    authorId: String
+    name: String
+    fromBornDate: String
+    toBornDate: String
+  ): PaginatedAuthors
+  books(
+    page: Int
+    pageSize: Int
+    bookId: String
+    title: String
+    fromPublishedDate: String
+    toPublishedDate: String
+  ): PaginatedBooks
+  bookReviews(bookId: String!, page: Int, pageSize: Int): BookReview
+}

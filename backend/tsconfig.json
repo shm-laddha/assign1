@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "baseUrl": ".",
+    "moduleResolution": "nodenext",
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "importsNotUsedAsValues": "remove",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "diagnostics": true,
+    "types": ["@types/node", "@types/graphql"]
+  },
+  "files": ["typings.d.ts"],
+  "include": ["src/**/*", "!src/**/*.graphql", "typings.d.ts"],
+  "exclude": ["node_modules"]
+}
