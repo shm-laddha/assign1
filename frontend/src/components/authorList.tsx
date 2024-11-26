@@ -38,7 +38,7 @@ export const AuthorList: React.FC = () => {
   });
 
   const debouncedSearch = useCallback(
-    debounce((params: { title?: string; fromDate?: Dayjs; toDate?: Dayjs }) => {
+    debounce((params: { name?: string; fromDate?: Dayjs; toDate?: Dayjs }) => {
       setSearchFilters({
         ...params,
         fromBornDate: params.fromDate?.toISOString() as string,
@@ -58,17 +58,17 @@ export const AuthorList: React.FC = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTitleTerm(e.target.value);
-    debouncedSearch({ title: e.target.value, fromDate, toDate });
+    debouncedSearch({ name: e.target.value, fromDate, toDate });
   };
 
   const handleFromDateChange = (date?: Dayjs) => {
     setFromDate(date);
-    debouncedSearch({ title: searchTitleTerm, fromDate: date, toDate });
+    debouncedSearch({ name: searchTitleTerm, fromDate: date, toDate });
   };
 
   const handleToDateChange = (date?: Dayjs) => {
     setToDate(date);
-    debouncedSearch({ title: searchTitleTerm, fromDate, toDate: date });
+    debouncedSearch({ name: searchTitleTerm, fromDate, toDate: date });
   };
 
   const handlePageChange = (page: number, pageSize: number) => {
