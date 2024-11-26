@@ -29,7 +29,7 @@ export const AddBookDialog: React.FC<AddBookProps> = ({
   const formRef = useRef<FormBuilderRef>(null);
   const addError = useRef<any>(null);
 
-  let [mutateFunction, { data, loading, error }] = useMutation(
+  const [mutateFunction, { data, loading, error }] = useMutation(
     ADD_BOOK_MUTATION,
     {
       refetchQueries: [GET_BOOK_LIST_QUERY, GET_BOOKS_BY_AUTHOR_ID],

@@ -35,7 +35,7 @@ export const UpdateAuthorDialog: React.FC<UpdateAuthorProps> = ({
   const formRef = useRef<FormBuilderRef>(null);
   const updateError = useRef<any>(null);
 
-  let [mutateFunction, { data, loading, error }] = useMutation(
+  const [mutateFunction, { data, loading, error }] = useMutation(
     UPDATE_AUTHOR_MUTATION,
     {
       refetchQueries: [GET_AUTHOR_NAMES, GET_AUTHOR_LIST_QUERY],

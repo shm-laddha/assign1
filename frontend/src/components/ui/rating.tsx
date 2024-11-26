@@ -13,7 +13,7 @@ const RatingInput: React.FC<Iprops> = ({ initialValue, onChange }) => {
 
   useEffect(() => {
     onChange(value);
-  }, [value]);
+  }, [value, onChange]);
 
   return (
     <Flex gap="middle" vertical>

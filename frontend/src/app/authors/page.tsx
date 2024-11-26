@@ -1,5 +1,4 @@
 "use client";
-import { ReviewList } from "@/components/reviewList";
 import { ErrorPage } from "@/components/ui/errorPage";
 import PageLoader from "@/components/ui/pageLoader";
 import { Separator } from "@/components/ui/separator";
@@ -8,8 +7,8 @@ import { GET_AUTHOR_DETAIL_QUERY } from "@/lib/api/authors";
 import { formatDate } from "@/lib/utils";
 import { useQuery } from "@apollo/client";
 import { Typography } from "@mui/material";
-import { Card, Flex, List, Rate } from "antd";
-import { CalendarRangeIcon, SunIcon } from "lucide-react";
+import { Card, Flex, List } from "antd";
+import { SunIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 const AuthorDetail: React.FC<any> = () => {
