@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const { Header, Content, Footer } = Layout;
 
-const LandingPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const LandingPage: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();

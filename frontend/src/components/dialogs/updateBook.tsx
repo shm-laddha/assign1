@@ -37,7 +37,7 @@ export const UpdateBookDialog: React.FC<UpdateBookProps> = ({
   const formRef = useRef<FormBuilderRef>(null);
   const updateError = useRef<any>(null);
 
-  let [mutateFunction, { data, loading, error }] = useMutation(
+  const [mutateFunction, { data, loading, error }] = useMutation(
     UPDATE_BOOK_MUTATION,
     {
       refetchQueries: [GET_BOOK_LIST_QUERY, GET_BOOKS_BY_AUTHOR_ID],

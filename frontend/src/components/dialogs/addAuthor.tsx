@@ -28,7 +28,7 @@ export const AddAuthorDialog: React.FC<AddAuthorProps> = ({
   const formRef = useRef<FormBuilderRef>(null);
   const addError = useRef<any>(null);
 
-  let [mutateFunction, { data, loading, error }] = useMutation(
+  const [mutateFunction, { data, loading, error }] = useMutation(
     ADD_AUTHOR_MUTATION,
     {
       refetchQueries: [GET_AUTHOR_LIST_QUERY, GET_AUTHOR_NAMES],

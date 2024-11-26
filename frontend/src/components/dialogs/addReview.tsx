@@ -36,7 +36,7 @@ export const AddReviewDialog: React.FC<AddReviewProps> = ({
   const formRef = useRef<FormBuilderRef>(null);
   const writeError = useRef<any>(null);
 
-  let [mutateFunction, { data, loading, error }] = useMutation(
+  const [mutateFunction, { data, loading, error }] = useMutation(
     ADD_BOOK_REVIEW_MUTATION,
     {
       refetchQueries: [GET_BOOK_REVIEWS_QUERY, GET_BOOK_DETAIL_QUERY],
