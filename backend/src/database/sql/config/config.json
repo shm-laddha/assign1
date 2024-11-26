@@ -18,6 +18,11 @@
     "password": "F3sI1Fg5e193VsjZUk7kxTfNu1y8WpQK",
     "database": "db_prod_65wm",
     "host": "dpg-ct2mudhu0jms738t5me0-a.singapore-postgres.render.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   }
 }

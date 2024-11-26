@@ -1,4 +1,4 @@
-import { Sequelize, importModels } from '@sequelize/core';
+import { Sequelize } from '@sequelize/core';
 import { env } from '../../config';
 import { createAssociations } from './models';
 import { Author, Book } from './models';
