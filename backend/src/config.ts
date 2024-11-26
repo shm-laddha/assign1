@@ -13,7 +13,7 @@ export const env = cleanEnv(process.env, {
   CORS_ORIGIN: str({ default: '*' }),
   PG_URL: str({
     default:
-      'postgresql://root:F3sI1Fg5e193VsjZUk7kxTfNu1y8WpQK@dpg-ct2mudhu0jms738t5me0-a.singapore-postgres.render.com/db_prod_65wm'
+      'postgresql://root:F3sI1Fg5e193VsjZUk7kxTfNu1y8WpQK@dpg-ct2mudhu0jms738t5me0-a.singapore-postgres.render.com/db_prod_65wm?ssl=true'
   }),
   MONGO_URL: str({
     default:
