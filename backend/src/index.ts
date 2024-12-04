@@ -5,8 +5,6 @@ import { env } from './config';
 
 dotenv.config();
 
-console.log(process.env);
-
 const run = async () => {
   const app = await startBackendServer();
 

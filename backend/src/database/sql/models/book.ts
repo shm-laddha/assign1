@@ -31,10 +31,7 @@ Table({
   tableName: 'Books',
   timestamps: true
 });
-export class Book extends Model<
-  InferAttributes<Book>,
-  InferCreationAttributes<Book>
-> {
+export class Book extends Model<InferAttributes<Book>, InferCreationAttributes<Book>> {
   @Attribute(DataTypes.UUID)
   @PrimaryKey
   @Default(() => `${v4()}`)
@@ -52,7 +49,7 @@ export class Book extends Model<
   declare publishedDate: string;
 
   // foreign key to its author
-  @Attribute(DataTypes.STRING)
+  @Attribute(DataTypes.UUID)
   @NotNull
   declare authorId: string;
 

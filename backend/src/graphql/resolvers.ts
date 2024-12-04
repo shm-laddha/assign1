@@ -37,7 +37,10 @@ const resolvers: ApolloServerOptions<any>['resolvers'] = {
       return {
         bookId: args.bookId,
         overallRating: await reviewService.getBookRating(args.bookId),
-        reviews: await reviewService.getAll(args.bookId)
+        reviews: await reviewService.getAll(args.bookId, {
+          pageSize: args.pageSize as number,
+          page: args.page as number
+        })
       };
     }
   },
@@ -59,17 +62,6 @@ const resolvers: ApolloServerOptions<any>['resolvers'] = {
     },
     createdAt: (book: { createdAt: Date }) => book.createdAt.toISOString(),
     updatedAt: (book: { updatedAt: Date }) => book.updatedAt.toISOString()
-  },
-  BookReview: {
-    reviews: async (
-      bookReview: { bookId: string },
-      args: QueryBookReviewsArgs
-    ) => {
-      return await reviewService.getAll(bookReview.bookId, {
-        pageSize: args.pageSize as number,
-        page: args.page as number
-      });
-    }
   }
 };
 
